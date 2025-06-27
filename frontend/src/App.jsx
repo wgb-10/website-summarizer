@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
 	const [url, setUrl] = useState('');
 	const [summary, setSummary] = useState('');
 	const [loading, setLoading] = useState(false);
+	const [snackbar, setSnackbar] = useState({ show: false, message: '' });
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -29,6 +31,22 @@ function App() {
 		}
 	};
 
+	const showSnackbar = (message) => {
+		setSnackbar({ show: true, message });
+		setTimeout(() => {
+			setSnackbar({ show: false, message: '' });
+		}, 3000); // Hide after 3 seconds
+	};
+
+	const copyToClipboard = () => {
+		navigator.clipboard.writeText(summary).then(() => {
+			showSnackbar('Summary copied to clipboard!');
+		}).catch(err => {
+			console.error('Failed to copy: ', err);
+			showSnackbar('Failed to copy summary.');
+		});
+	};
+
 	return (
 		<div className="App">
 			<div className="container">
@@ -46,9 +64,17 @@ function App() {
 					<div className="summary-section">
 						<h2>Summary</h2>
 						<p>{summary}</p>
+						<button onClick={copyToClipboard} className="copy-button">
+							Copy to Clipboard
+						</button>
 					</div>
 				)}
 			</div>
+			{snackbar.show && (
+				<div className="snackbar show">
+					{snackbar.message}
+				</div>
+			)}
 		</div>
 	);
 }

@@ -1,7 +1,8 @@
 /* General Body and App Styling */
+/* General Body and App Styling */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f7f6;
+  font-family: 'Inter', sans-serif; /* Modern font */
+  background-color: #e0f2f7; /* Light blue background */
   color: #333;
   margin: 0;
   padding: 0;
@@ -25,8 +26,8 @@ body {
 .container {
   background-color: #ffffff;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px; /* More rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
   text-align: center;
 }
 
@@ -34,8 +35,9 @@ body {
 h1 {
   color: #2c3e50;
   margin-bottom: 30px;
-  font-size: 2.5em;
+  font-size: 2.8em; /* Slightly larger */
   font-weight: 700;
+  letter-spacing: -0.5px; /* Tighter letter spacing */
 }
 
 /* Form Styling */
@@ -48,34 +50,38 @@ form {
 
 input[type="url"] {
   flex-grow: 1;
-  padding: 12px 18px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 1em;
+  padding: 14px 20px; /* More padding */
+  border: 1px solid #cce7f0; /* Lighter, modern border */
+  border-radius: 10px; /* More rounded */
+  font-size: 1.05em;
   transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Inner shadow */
+  color: black;
+  background-color: #f0f8ff
 }
 
 input[type="url"]:focus {
   border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2); /* Softer focus glow */
   outline: none;
 }
 
 button {
-  padding: 12px 25px;
-  background-color: #007bff;
+  padding: 14px 30px; /* More padding */
+  background-color: #007bff; /* Primary blue */
   color: white;
   border: none;
-  border-radius: 8px;
-  font-size: 1em;
+  border-radius: 10px; /* More rounded */
+  font-size: 1.05em;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.25); /* Enhanced shadow */
 }
 
 button:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
 }
 
 button:disabled {
@@ -94,28 +100,49 @@ button:disabled {
 
 /* Summary Section */
 .summary-section {
-  background-color: #e9f7ef;
-  border: 1px solid #d4edda;
-  border-radius: 8px;
-  padding: 25px;
+  background-color: #f0f8ff; /* Very light blue */
+  border: 1px solid #b3e0ff; /* Light blue border */
+  border-radius: 12px; /* Rounded corners */
+  padding: 30px; /* More padding */
   margin-top: 30px;
   text-align: left;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  position: relative; /* For copy button positioning */
 }
 
 .summary-section h2 {
-  color: #28a745;
+  color: #007bff; /* Blue heading */
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.8em;
-  border-bottom: 2px solid #28a745;
+  margin-bottom: 20px; /* More space */
+  font-size: 2em; /* Slightly larger */
+  border-bottom: 2px solid #007bff; /* Blue border */
   padding-bottom: 10px;
 }
 
 .summary-section p {
-  font-size: 1.1em;
-  line-height: 1.7;
+  font-size: 1.15em; /* Slightly larger text */
+  line-height: 1.8; /* More line height for readability */
   color: #444;
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  word-wrap: break-word; /* Break long words */
+}
+
+.copy-button {
+  background-color: #28a745; /* Green for copy */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Space from summary text */
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.copy-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 /* Responsive Adjustments */
@@ -139,14 +166,39 @@ button:disabled {
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 2.2em;
   }
 
   .summary-section h2 {
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
 
   .summary-section p {
-    font-size: 1em;
+    font-size: 1.05em;
   }
+}
+
+/* Snackbar styles */
+.snackbar {
+  visibility: hidden; /* Hidden by default. */
+  min-width: 250px; /* Set a default minimum width */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 8px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  right: 20px; /* Bottom right */
+  bottom: 20px; /* Bottom right */
+  font-size: 1em;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Start invisible */
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+/* Show the snackbar when adding the "show" class to DIV */
+.snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  opacity: 1; /* Fade in */
 }
