@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import './App.css';
 
 function App() {
@@ -63,7 +64,7 @@ function App() {
 				{summary && (
 					<div className="summary-section">
 						<h2>Summary</h2>
-						<p>{summary}</p>
+						<ReactMarkdown>{summary}</ReactMarkdown>
 						<button onClick={copyToClipboard} className="copy-button">
 							Copy to Clipboard
 						</button>
